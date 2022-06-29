@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:31:09 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/29 20:59:14 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/29 21:12:23 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,4 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
+//gcc -Llibft -lft *.c *.h 
