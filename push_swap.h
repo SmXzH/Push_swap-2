@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:31:12 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/29 20:57:22 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/03 20:57:13 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct node
 	int			index;
 	int			flag;
 	struct node	*next;
-	struct node *prev;
 }t_node;
 
 typedef struct all
@@ -35,12 +34,9 @@ typedef struct all
 	t_node	*stack_b;
 	int		size_a;
 	int		size_b;
-	int		min_a;
-	int		min_b;
-	int		max_a;
-	int		max_b;
-	int		med_a;
-	int		med_b;
+	int		min;
+	int		max;
+	int		med;
 }t_all;
 
 t_all	*parse(char	**av);
@@ -55,8 +51,15 @@ void	listadd(t_node **stack_a, t_node *new);
 void	add_to_stack(t_all *all, char **arr);
 void	bubble_sort(t_all *all, int *sort, int *non_sort, int len);
 void	create_stack(t_all	*all, int *sort, int *non_sort, int len);
+void	med_min_max(t_all *all);
+void	sorting(t_all *all);
+int		sort_true(t_all *all);
+void	free_stack(t_all *all);
 
 //Instructions
+void	sa(t_all *all, int flag);
+void	sb(t_all *all, int flag);
+void	ss(t_all *all);
 void	push_a(t_all *all);
 void	push_b(t_all *all);
 void	pb(t_all *all, int flag);
@@ -64,5 +67,12 @@ void	pa(t_all *all, int flag);
 void	ra(t_all *all, int flag);
 void	rb(t_all *all, int flag);
 void	rr(t_all *all, int flag);
+void	rra(t_all *all, int flag);
+void	rrb(t_all *all, int flag);
+void	rrr(t_all *all, int flag);
+
+//sorting
+void	sort_tree(t_all *all);
+void	sort_five(t_all *all);
 
 #endif

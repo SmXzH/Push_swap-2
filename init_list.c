@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:21:31 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/29 16:47:59 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/03 18:38:56 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,9 @@ t_all	*init_struct(char **str)
 	all->stack_b = NULL;
 	all->size_a = i;
 	all->size_b = 0;
-	all->min_a = 1;
-	all->min_b = 0;
-	all->max_a = 0;
-	all->max_b = 0;
-	all->med_a = 0;
-	all->med_b = 0;
+	all->min = 1;
+	all->max = 0;
+	all->med = 0;
 	return (all);
 }
 
@@ -47,7 +44,6 @@ t_node	*new_list(int num, int index)
 	lst->flag = 0;
 	lst->index = index;
 	lst->next = NULL;
-	lst->prev = NULL;
 	return (lst);
 }
 

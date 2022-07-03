@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:31:09 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/29 21:12:23 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/03 21:00:03 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,16 @@ t_all	*parse(char	**av)
 	return (list);
 }
 
-//t_all *sorting(t_all *all)
-//{
-//	if (sort_true(all))
-//		exit(1);
-	
-//}
+void	sorting(t_all *all)
+{
+	if(sort_true(all))
+		free_stack(all);
+	if (all->size_a < 6)
+	{
+		sort_five(all);
+		free_stack(all);
+	}
+}
 
 void	print_stack(t_node *top)
 {
@@ -40,7 +44,7 @@ void	print_stack(t_node *top)
 	i = 1;
 	while(top != NULL)
 	{
-		printf("stack %d is %d\n", i, top->num);
+		printf("stack %d is %d and index = %d\n", i, top->num, top->index);
 		top = top->next;
 		i++;
 	}
@@ -52,13 +56,10 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		all = parse(av);
-	//	sorting(all);
-		pb(all, 1);
-		pb(all, 1);
-		rr(all, 1);
+		sorting(all);
 		print_stack(all->stack_a);
-		print_stack(all->stack_b);
 	}
 	return (0);
 }
+
 //gcc -Llibft -lft *.c *.h 

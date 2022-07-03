@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:38:54 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/29 18:30:15 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/30 11:57:03 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	add_to_stack(t_all *all, char **arr)
 	int		len;
 	int		num;
 
-	len = all->size_a;
+	len = 0;
+	i = -1;
+	while (arr[++i])
+		len++;
 	non_sort = malloc(sizeof(int) * (len));
 	sort = malloc(sizeof(int) * (len));
-	if (!non_sort && !sort)
-		return ;
 	i = 0;
 	while (i < len)
 	{
@@ -40,17 +41,17 @@ void	bubble_sort(t_all *all, int *sort, int *non_sort, int len)
 {
 	int		i;
 	int		j;
-	int		count;
 	int		tmp;
+	int		count;
 	
 	i = 0;
 	count = 0;
 	while (i < len)
 	{
 		j = 0;
-		while (j < (len - 1  - i))
+		while (j < (len - 1 - i))
 		{
-			if (sort[i] == sort[j + 1])
+			if (sort[j] > sort[j + 1])
 				{
 					tmp = sort[j + 1];
 					sort[j + 1] = sort[j];
@@ -71,7 +72,7 @@ void	create_stack(t_all	*all, int *sort, int *non_sort, int len)
 	
 	i = 0;
 	while(i < len)
-	{
+	{	
 		j = 0;
 		while (j < len)
 		{

@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:22:57 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/29 21:00:33 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/03 19:38:14 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,16 @@ void	push_a(t_all *all)
 	t_node	*tmp;
 
 	tmp = all->stack_b->next;
-	if (all->size_a)
+	if (all->stack_a)
 	{
-		all->stack_a->prev = all->stack_b;
 		all->stack_b->next = all->stack_a;
 		all->stack_a = all->stack_b;
 	}
 	else
+	{
 		all->stack_a = all->stack_b;
 		all->stack_a->next = NULL;
+	}
 	all->stack_b = tmp;
 }
 
@@ -41,7 +42,6 @@ void	push_b(t_all *all)
 	tmp = all->stack_a->next;
 	if (all->stack_b)
 	{
-		all->stack_b->prev = all->stack_a;
 		all->stack_a->next = all->stack_b;
 		all->stack_b = all->stack_a;
 	}
@@ -51,7 +51,6 @@ void	push_b(t_all *all)
 		all->stack_b->next = NULL;
 	}
 	all->stack_a = tmp;
-
 }
 
 void	pb(t_all *all, int flag)
