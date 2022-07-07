@@ -6,11 +6,19 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:31:09 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/07/03 21:00:03 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:18:41 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//void	print_stack(t_node *top)
+//{
+//	t_node *tmp;
+
+//	tmp = top->stack_a;
+	
+//}
 
 t_all	*parse(char	**av)
 {
@@ -35,20 +43,17 @@ void	sorting(t_all *all)
 		sort_five(all);
 		free_stack(all);
 	}
-}
-
-void	print_stack(t_node *top)
-{
-	int i;
-
-	i = 1;
-	while(top != NULL)
+	else if (all->size_a > 5 && all->size_a < 101)
 	{
-		printf("stack %d is %d and index = %d\n", i, top->num, top->index);
-		top = top->next;
-		i++;
+		call_chunks(all);
+		while (all->stack_b != NULL)
+		{
+			push_back(all);
+		}
 	}
+
 }
+
 
 int	main(int ac, char **av)
 {
@@ -57,7 +62,9 @@ int	main(int ac, char **av)
 	{
 		all = parse(av);
 		sorting(all);
-		print_stack(all->stack_a);
+		printstack(all->stack_a);
+		printf("---------------------------------\n");
+		//printstack(all->stack_b);
 	}
 	return (0);
 }

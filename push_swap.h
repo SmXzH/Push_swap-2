@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:31:12 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/07/03 20:57:13 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/07 21:16:14 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct node
 	int			index;
 	int			flag;
 	struct node	*next;
+	struct node	*prev;
 }t_node;
 
 typedef struct all
@@ -37,6 +38,9 @@ typedef struct all
 	int		min;
 	int		max;
 	int		med;
+	int		min_b;
+	int		med_b;
+	int		max_b;
 }t_all;
 
 t_all	*parse(char	**av);
@@ -55,6 +59,12 @@ void	med_min_max(t_all *all);
 void	sorting(t_all *all);
 int		sort_true(t_all *all);
 void	free_stack(t_all *all);
+void	push_down(t_all *all, int flag);
+void	sort_five_b_to_a(t_all *all);
+void	sort_a_to_b(t_all *all);
+void	move_a_to_b_first(t_all *all);
+void	chunk(t_all *all, int min, int max);
+
 
 //Instructions
 void	sa(t_all *all, int flag);
@@ -75,4 +85,10 @@ void	rrr(t_all *all, int flag);
 void	sort_tree(t_all *all);
 void	sort_five(t_all *all);
 
+//delite this
+void	printstack(t_node *top);
+void	call_chunks(t_all *all);
+int		find_block(t_all *all);
+void	push_back(t_all *all);
+void	med_min_max_b(t_all *all);
 #endif

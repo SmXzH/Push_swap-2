@@ -6,15 +6,14 @@
 #    By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/03 21:10:32 by szhakypo          #+#    #+#              #
-#    Updated: 2022/07/03 21:43:14 by szhakypo         ###   ########.fr        #
+#    Updated: 2022/07/07 21:15:07 by szhakypo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
 
 FILES =	add_to_stack.c		init_list.c		med_max_men.c		parse.c\
 		push_cmd.c			push_swap.c		reverse_cmd.c		rotade_cmd.c\
-		sort_min.c			swap_cmd.c
+		sort_min.c			swap_cmd.c		chunki.c			push_back.c
 
 
 LIBFT		=	cd libft && make
@@ -36,6 +35,7 @@ FLAGS		=	-Wall -Wextra -Werror
 
 INCLUDE		=	-I include
 
+NAME = push_swap
 # ------------------------------ Rules ------------------------------
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:25:41 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/07/03 21:00:06 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/04 11:03:14 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,12 @@ void	free_stack(t_all *all)
 	}
 	free(all);
 	exit(0);
+}
+
+void	push_down(t_all *all, int flag)
+{
+	all->stack_a->flag = -1;
+	ra(all, 1);
+	if (flag)
+		printf("PUSH_DOWN\n");
 }
