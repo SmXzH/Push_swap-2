@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:25:41 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/07/04 11:03:14 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/08 21:42:06 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	med_min_max(t_all *all)
 {
-	int	i;
-	int	min;
-	int	max;
+	int		i;
+	int		min;
+	int		max;
 	t_node	*tmp;
 
 	tmp = all->stack_a;
@@ -39,7 +39,7 @@ void	med_min_max(t_all *all)
 	all->stack_a = tmp;
 }
 
-int sort_true(t_all *all)
+int	sort_true(t_all *all)
 {
 	int		i;
 	t_node	*tmp;
@@ -49,7 +49,7 @@ int sort_true(t_all *all)
 	while (i--)
 	{
 		if (tmp->index > tmp->next->index)
-			return(0);
+			return (0);
 		tmp = tmp->next;
 	}
 	return (1);
@@ -58,7 +58,7 @@ int sort_true(t_all *all)
 void	free_stack(t_all *all)
 {
 	t_node		*tmp;
-	
+
 	while (all->size_a--)
 	{
 		tmp = all->stack_a->next;

@@ -6,16 +6,16 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:31:12 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/07/07 21:16:14 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/08 21:42:25 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include "libft/libft.h"
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
@@ -63,8 +63,7 @@ void	push_down(t_all *all, int flag);
 void	sort_five_b_to_a(t_all *all);
 void	sort_a_to_b(t_all *all);
 void	move_a_to_b_first(t_all *all);
-void	chunk(t_all *all, int min, int max);
-
+void	chunk(t_all *all);
 
 //Instructions
 void	sa(t_all *all, int flag);
@@ -84,11 +83,11 @@ void	rrr(t_all *all, int flag);
 //sorting
 void	sort_tree(t_all *all);
 void	sort_five(t_all *all);
-
-//delite this
 void	printstack(t_node *top);
 void	call_chunks(t_all *all);
 int		find_block(t_all *all);
 void	push_back(t_all *all);
 void	med_min_max_b(t_all *all);
+void	sort_four(t_all *all);
+//void	sort_tree_b(t_all *all);
 #endif

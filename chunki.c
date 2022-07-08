@@ -6,20 +6,22 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:57:37 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/07/07 21:08:06 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/08 21:35:45 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		find_block(t_all *all)
+int	find_block(t_all *all)
 {
-	if (all->size_a > 100)
-		return (15);
-	if (all->size_a > 50)
-		return (8);
 	if (all->size_a > 400)
-		return (38);
+		return (55);
+	else if (all->size_a > 600)
+		return (80);
+	else if (all->size_a > 100)
+		return (35);
+	else if (all->size_a > 50)
+		return (24);
 	else
 		return (4);
 }
@@ -27,32 +29,33 @@ int		find_block(t_all *all)
 void	call_chunks(t_all *all)
 {
 	int	block;
-	int	i;
 
-	i = 1;
 	block = find_block(all);
-	
 	while (all->size_a > block)
 	{
-		chunk(all, i, block);
-		i = block + 1;
+		chunk(all);
 		block *= 2;
 	}
 }
 
-void	chunk(t_all *all, int min, int max)
+void	chunk(t_all *all)
 {
 	int	i;
-	int	chunk = find_block(all);
-	
-	min = 0;
-	max = 0;
+	int	chunk;
+	int	size;
+
+	chunk = find_block(all);
+	size = all->size_a / chunk;
 	i = 0;
-	printf ("size of A : %d\n", all->size_a);
-	while (all->size_a > 1)
+	while (all->size_a > 0)
 	{
-		if (all->stack_a->index >= i * chunk && all->stack_a->index <= ((i + 1) * chunk))
+		if (all->stack_a->index >= i * chunk
+			&& all->stack_a->index <= ((i + 1) * chunk))
+		{
 			pb(all, 1);
+			if (all->stack_b->index < ((i * chunk) + ((i + 1) * chunk)) / 2)
+				rb(all, 1);
+		}
 		else
 			ra(all, 1);
 		if (all->size_b == ((i + 1) * chunk))
@@ -76,9 +79,9 @@ void	printstack(t_node *top)
 
 void	med_min_max_b(t_all *all)
 {
-	int	i;
-	int	min;
-	int	max;
+	int		i;
+	int		min;
+	int		max;
 	t_node	*tmp;
 
 	tmp = all->stack_b;
@@ -99,8 +102,3 @@ void	med_min_max_b(t_all *all)
 	all->med_b = (min + max) / 2;
 	all->stack_b = tmp;
 }
-
-//void	sort_a(t_all *all)
-//{
-	
-//}

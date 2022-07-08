@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 10:10:22 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/07/04 19:00:05 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:40:21 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	rrb(t_all *all, int flag)
 	if (all->size_b > 1)
 		all->stack_b = all->stack_b->prev;
 	if (flag)
-		write(1, "rrb\b", 4);
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_all *all, int flag)
